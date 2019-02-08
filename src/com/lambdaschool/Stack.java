@@ -14,7 +14,7 @@ public class Stack {
     // returns the number of elements in the stack
     public String getTop() {
         if (top == -1) return "There are no items in your stack";
-        return Integer.toString(top);
+        return Integer.toString(top + 1);
     }
 
     public void push (String str) {
@@ -28,10 +28,11 @@ public class Stack {
     }
 
     public void print() {
-        System.out.println("[");
-        for (String s : stack) {
-            System.out.print("'" + s + "', ");
+        System.out.print("[");
+        for (int i = 0; i <= top; i++) {
+            if(stack[i] == null) break;
+            System.out.print("'" + stack[i] + "', ");
         }
-        System.out.println("]");
+        System.out.print("]\n");
     }
 }
