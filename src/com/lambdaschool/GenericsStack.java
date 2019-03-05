@@ -1,5 +1,7 @@
 package com.lambdaschool;
 
+import java.util.EmptyStackException;
+
 public class GenericsStack <E extends Object> {
     private final int size;
     private E[] stack;
@@ -22,9 +24,14 @@ public class GenericsStack <E extends Object> {
     }
 
     public E pop () {
-        if (top == -1) throw new UnsupportedOperationException("Stack is empty");
+        if (top == -1) throw new EmptyStackException();
         E element = this.stack[top--];
         return element;
+    }
+
+    public E peek () {
+        if (top == (size - 1)) throw new EmptyStackException();
+        return this.stack[top];
     }
 
     public void print() {
